@@ -13,7 +13,9 @@ python3 -m pip install --user pipx
 python3 -m pipx ensurepath
 
 # reload zsh to get updated PATH
-. ~/.zshrc
+# But... we're in BASH :-p
+#. ~/.zshrc
+. ~/.bashrc
 pipx install poetry
 
 # Create custom dirs
