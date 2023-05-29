@@ -1,5 +1,5 @@
 #!/usr/bin/zsh
-# apt packages installed via new_install_config.sh bash script
+# apt packages installed via 01_install-setup.sh bash script
 
 # python pip pipx poetry
 echo 'Installing pip/x, poetry...'
