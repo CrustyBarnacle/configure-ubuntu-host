@@ -2,7 +2,13 @@
 
 My dotfiles are scripts (mostly?).
 A few scripts to set up your new Ubuntu-based desktop installation.
-ToDo: add some useful aliases and a proper dotfiles (~/.config) backup.
+
+ToDo:
+ * add some useful aliases
+ * proper dotfiles (~/.config) backup
+ * set some firefox preferences
+   * install extensions (ad block, bitwarden)
+   * stop prompting to save passwords
 
 The scripts will install and configure the following:
 
@@ -45,14 +51,14 @@ These scripts are called from `02_configure.zsh`
 
  Cmus script: `cmus_config.zsh`
   * installs the c music player `cmus`
-  * Creates a playlist of all current (SomaFM)[https://somafm.com/] web radio channels
-    (copied to ``)
-  * Based on my (somafm)[https://github.com/CrustyBarnacle/somafm] python script.
+  * Creates a playlist of all current [SomaFM](https://somafm.com/) web radio channels
+    (copied to `~/.config/cmus/playlists/soma_channels_http.pl`)
+  * Based on my [somafm](https://github.com/CrustyBarnacle/somafm) python script.
 
  Originally [a gist](https://gist.github.com/CrustyBarnacle/d21252366fccd873bec70469e986a0b7)
 
  ### References
-  * (zsh)[https://github.com/zsh-users/zsh]
-  * (oh-my-zsh)[https://github.com/ohmyzsh/ohmyzsh]
-  * (powerlevel10k)[https://github.com/romkatv/powerlevel10k]
-  * (helpful.wiki)[https://helpful.wiki/zsh/]
+  * [zsh](https://github.com/zsh-users/zsh)
+  * [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
+  * [powerlevel10k](https://github.com/romkatv/powerlevel10k)
+  * [helpful.wiki](https://helpful.wiki/zsh/)
