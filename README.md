@@ -31,13 +31,26 @@ The scripts will install and configure the following:
     )
     ```
  * Installs VScodium (`codium`)
- * Intalls `oh-my-zsh`
+ * Intalls `oh-my-zsh` (`install.sh` runs directly via curl/download)
  * Installs MesloLGS nerd fonts for Powerlevel10K and rebuids font-cache
- * Installs Powerlevel10K config/themer for zsh
+ * Installs Powerlevel10K config/theme for zsh
+    (copied to `ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/`)
    * sets `ZSH_THEME` to Powerlevel10k, and restarts zsh
-
- * Sets `zsh` as defualt user shell
 ---
 These scripts are called from `02_configure.zsh`
  * `install_fonts_MesloLGS.zsh`
  * `install_vscodium.zsh`
+
+ Cmus script: `cmus_config.zsh`
+  * installs the c music player `cmus`
+  * Creates a playlist of all current (SomaFM)[https://somafm.com/] web radio channels
+    (copied to ``)
+  * Based on my (somafm)[https://github.com/CrustyBarnacle/somafm] python script.
+
+ Originally [a gist](https://gist.github.com/CrustyBarnacle/d21252366fccd873bec70469e986a0b7)
+
+ ### References
+  * (zsh)[https://github.com/zsh-users/zsh]
+  * (oh-my-zsh)[https://github.com/ohmyzsh/ohmyzsh]
+  * (powerlevel10k)[https://github.com/romkatv/powerlevel10k]
+  * (helpful.wiki)[https://helpful.wiki/zsh/]
