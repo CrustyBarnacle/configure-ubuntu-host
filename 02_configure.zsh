@@ -36,6 +36,7 @@ install_fonts_MesloLGS.zsh
 
 # Install powerlevel10k
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-sed -ie 's|^ZSH_THEME=.*|ZSH_THEME="powerlevel10k\/powerlevel10k"/' ~/.zshrc
+# sed delimeter "|" used to avoid ambiguity/clarity for humans
+sed -ie 's|^ZSH_THEME=.*|ZSH_THEME="powerlevel10k\/powerlevel10k"|' ~/.zshrc
 exec zsh # Powerline10k wizard should start automatically
 # p10k configure
