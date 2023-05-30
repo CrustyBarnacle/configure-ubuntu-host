@@ -2,6 +2,8 @@
 
 My dotfiles are scripts (mostly?).
 A few scripts to set up your new Ubuntu-based desktop installation.
+ToDo: add some useful aliases and a proper dotfiles (~/.config) backup.
+
 The scripts will install and configure the following:
 
 ## `01_install-setup.sh`
