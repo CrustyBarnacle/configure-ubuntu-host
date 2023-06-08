@@ -14,14 +14,14 @@ fi
 cd ~/Documents/Projects
 
 if [ ! -d "somafm" ]; then
-git clone --depth=1 https://github.com/CrustyBarnacle/somafm.git
+  git clone --depth=1 https://github.com/CrustyBarnacle/somafm.git
 fi
 
 cd ./somafm
 
 if [  ! -f "pyproject.toml" ]; then
-poetry init -n
-poetry install
+  poetry init -n
 fi
 
+poetry install
 poetry run python3 somafm.py | sed 's/https/http/' > ~/.config/cmus/playlists/soma_channels_http.pl
