@@ -25,3 +25,4 @@ fi
 
 poetry install
 poetry run python3 somafm.py | sed 's/https/http/' > ~/.config/cmus/playlists/soma_channels_http.pl
+S
