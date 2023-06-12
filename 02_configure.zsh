@@ -45,4 +45,4 @@ exec zsh # Powerline10k wizard should start automatically
 
 # https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md
 echo "source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${$HOME}/.zshrc
-echo "source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ${$HOME}/.zshrc
+echo "source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ${$HOME}/.zshrcS
