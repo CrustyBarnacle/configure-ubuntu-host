@@ -21,7 +21,7 @@ flatpak install -y foliate joplin
 get_status "Flatpak app install"
 
 # set zsh as default shell
-DEFAULT_SHELL=$(getent passwd sol | awk -F: '{print $NF}')
+DEFAULT_SHELL=$(getent passwd $USER | awk -F: '{print $NF}')
 if [[ $DEFAULT_SHELL == $(which zsh) ]]; then
   echo "ZSH already default shell for $USER."
 else
