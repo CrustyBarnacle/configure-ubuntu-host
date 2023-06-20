@@ -1,17 +1,6 @@
 #!/bin/bash
-
-# Get task status/result
-# get_status <task>
-function get_status ()
-{
-    if [ $? -eq 0 ];
-    then
-      echo "$1 successfully completed."
-    else
-      echo "$1 failed..." >&2
-      exit 1
-    fi
-}
+# Source Library/Functions
+. ./function_library
 
 # Enable UFW (default incoming:deny, outgoing:allow)
 echo "Enabling UFW with default settings..."
