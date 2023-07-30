@@ -11,7 +11,7 @@ else
 fi
 
 # Clone somafm repo, get stations, and create cmus playlist
-cd ~/Documents/Projects
+cd ~/Projects
 
 if [ ! -d "somafm" ]; then
   git clone --depth=1 https://github.com/CrustyBarnacle/somafm.git
