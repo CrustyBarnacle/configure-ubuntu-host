@@ -62,3 +62,4 @@ These scripts are called from `02_configure.zsh`
   * [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
   * [powerlevel10k](https://github.com/romkatv/powerlevel10k)
   * [helpful.wiki](https://helpful.wiki/zsh/)
+  * [Gist - Device Rule for Apple SuperDrive](https://gist.github.com/yookoala/818c1ff057e3d965980b7fd3bf8f77a6)
