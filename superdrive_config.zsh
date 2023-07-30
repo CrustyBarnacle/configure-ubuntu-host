@@ -4,9 +4,6 @@
 # Install sg3 Utils
 sudo apt install -y sg3-utils
 
-# Identify drive
-DRIVE_DEV=$(ls /dev | grep sr)
-
 # Create UDEV rule to initialze drive when connected
 cat <<- EOF | sudo tee  /etc/udev/rules.d/91-superdrive.rules > /dev/null
 # Initialise Apple SuperDrive
