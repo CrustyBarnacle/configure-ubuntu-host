@@ -11,4 +11,4 @@ echo 'deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg ] https:/
     | sudo tee /etc/apt/sources.list.d/vscodium.list
 
 # update apt cache and install VScodium
-sudo apt install codium
+sudo apt update && sudo apt install codium
