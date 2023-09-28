@@ -33,3 +33,7 @@ alias fwu="sudo fwupdmgr get-devices && sudo fwupdmgr get-updates && sudo fwupdm
 # Flatpak
 alias fpu="flatpak update --assumeyes && flatpak upgrade --assumeyes"
 EOF
+
+cat <<- EOF >> ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/path.zsh
+export PATH=$PATH:~/.local/bin
+EOF
