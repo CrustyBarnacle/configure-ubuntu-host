@@ -12,7 +12,7 @@ get_status "Enabling UFW"
 echo 'Updating apt cache and installing apt packages...'
 sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade && sudo apt autoremove -y \
 && sudo apt autoclean && sudo fwupdmgr get-devices && sudo fwupdmgr get-updates && sudo fwupdmgr update \
-&& sudo apt install -y bat gnome-tweaks python3 python3-pip python3.10-venv xclip zsh
+&& sudo apt install -y bat gnome-tweaks bpython python3 python3-pip python3.10-venv xclip zsh
 get_status "Update of apt cache and package installations"
 
 # Flatpak apps
