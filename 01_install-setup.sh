@@ -11,12 +11,13 @@ get_status "Enabling UFW"
 # `bat` conflicts with another binary, and is installed as `/usr/bin/batcat`
 echo 'Updating apt cache and installing apt packages...'
 sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade && sudo apt autoremove -y \
-&& sudo apt autoclean && sudo fwupdmgr get-devices && sudo fwupdmgr get-updates && sudo fwupdmgr update \
-&& sudo apt install -y bat gnome-tweaks python3 python3-pip python3.10-venv xclip zsh
+&& sudo apt autoclean \
+&& sudo apt install -y bat flatpak python3 python3-pip python3-venv xclip zsh
 get_status "Update of apt cache and package installations"
 
 # Flatpak apps
 echo 'Installing flatpak applications...'
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak install -y foliate joplin
 get_status "Flatpak app install"
 
