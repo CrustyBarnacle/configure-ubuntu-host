@@ -17,6 +17,10 @@ for font in $fonts; do
 wget ${font/#/$url};
 done
 
+if [ ! -d "~/.local/share/fonts/" ]; then
+  mkdir -p ~/.local/share/fonts/
+fi
+
 for font in $fonts; do
 cp $font ~/.local/share/fonts/;
 done

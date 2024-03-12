@@ -31,9 +31,18 @@ for dir in $CUSTOM_DIRS;
 
 # Other install methods (curl/Git/Wget/scripts)
 # install VScodium
-install_vscodium.zsh
+echo "Install vscodium? (y/n)"
+read 'choice?>> '
+
+if [[ ${choice} == 'y' ]]; then
+  ./install_vscodium.zsh
+else
+  echo "Not installing vscodium."
+fi
 get_status "Installing vscodium..."
 
 # Configure ZSH
-configure_shell.zsh
+./configure_shell.zsh
 get_status "ZSH setup..."
+
+exit 0
