@@ -12,7 +12,7 @@ get_status "Enabling UFW"
 echo 'Updating apt cache and installing apt packages...'
 sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade && sudo apt autoremove -y \
 && sudo apt autoclean \
-&& sudo apt install -y bat flatpak python3 python3-pip python3-venv xclip zsh
+&& sudo apt install -y bat flatpak python3 python3-pip python3-venv xclip
 get_status "Update of apt cache and package installations"
 
 # Flatpak apps
@@ -20,14 +20,5 @@ echo 'Installing flatpak applications...'
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak install -y foliate joplin
 get_status "Flatpak app install"
-
-# set zsh as default shell
-DEFAULT_SHELL=$(getent passwd $USER | awk -F: '{print $NF}')
-if [[ $DEFAULT_SHELL == $(which zsh) ]]; then
-  echo "ZSH already default shell for $USER."
-else
-  chsh -s $(which zsh) $USER
-  get_status "Updating default shell"
-fi
 
 exit 0

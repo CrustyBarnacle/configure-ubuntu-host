@@ -2,6 +2,7 @@
 
 # Install fonts for powerlevel10k
 install_fonts_MesloLGS.zsh
+mkdir
 
 # Install powerlevel10k
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.zsh/custom}/themes/powerlevel10k
