@@ -4,6 +4,10 @@
 install_fonts_MesloLGS.zsh
 mkdir
 
+# ZSH custom folder
+mkdir $HOME/.zsh/custom
+echo "ZSH_CUSTOM=$HOME/.zsh/custom"
+
 # Install powerlevel10k
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.zsh/custom}/themes/powerlevel10k
 # sed delimeter "|" used for clarity
@@ -12,8 +16,8 @@ exec zsh # Powerline10k wizard should start automatically - uncomment next line 
 # p10k configure
 
 # https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md
-echo "source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${$HOME}/.zshrc
-echo "source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ${$HOME}/.zshrc
+echo "source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> $HOME/.zshrc
+echo "source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh" >> $HOME/.zshrc
 
 # Package management aliases
 # Create/append to `aliases_apt.zsh`
