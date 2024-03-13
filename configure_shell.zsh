@@ -14,8 +14,6 @@ cat <<- EOF > ~/.zshrc
 
 PROMPT='%F{040}%n%f @ %F{156}%~%f -> '
 RPROMPT='%*'
-
-ZSH_THEME=
 EOF
 
 # ZSH custom folder
@@ -23,7 +21,7 @@ mkdir -p $HOME/.zsh/custom
 ZSH_CUSTOM=$HOME/.zsh/custom
 
 # Install powerlevel10k
-THEME_REPO='~/.zsh/custom/themes/powerlevel10k'
+THEME_REPO='$HOME/.zsh/custom/themes/powerlevel10k'
 if [[ -d $THEME_REPO ]]; then
   echo "Theme already installed."
 else
@@ -31,8 +29,8 @@ else
   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $THEME_REPO
 fi
 
-# sed delimeter "|" used for clarity
-sed -ie 's|^ZSH_THEME=.*|ZSH_THEME="powerlevel10k\/powerlevel10k"|' ~/.zshrc
+# Add Powerline10k theme
+echo 'source $HOME/.zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
 exec zsh # Powerline10k wizard should start automatically - uncomment next line if otherwise
 # p10k configure
 
