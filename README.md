@@ -5,6 +5,7 @@ A few scripts to set up your new Ubuntu-based desktop installation.
 
 ToDo:
  * add some useful aliases
+   * some have been added via `configure_shell.zsh`
  * proper dotfiles (~/.config) backup
  * set some firefox preferences
    * install extensions (ad block, bitwarden)
@@ -13,7 +14,7 @@ ToDo:
 The scripts will install and configure the following:
 
 ## `01_install-setup.sh`
- * UFW (enable, default drop incoming, accept incoming)
+ * UFW (enable, default drop incoming, accept outgoing)
  * Installs some `apt` packages:
     * bat
     * gnome-tweaks
@@ -59,7 +60,7 @@ These scripts are called from `02_configure.zsh`
 
  ### References
   * [zsh](https://github.com/zsh-users/zsh)
-  * [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
+  * ~~[oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)~~ moving away from any zsh config framework
   * [powerlevel10k](https://github.com/romkatv/powerlevel10k)
   * [helpful.wiki](https://helpful.wiki/zsh/)
   * [Gist - Device Rule for Apple SuperDrive](https://gist.github.com/yookoala/818c1ff057e3d965980b7fd3bf8f77a6)
