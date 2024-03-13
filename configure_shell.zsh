@@ -14,8 +14,6 @@ cat <<- EOF > ~/.zshrc
 
 PROMPT='%F{040}%n%f @ %F{156}%~%f -> '
 RPROMPT='%*'
-
-ZSH_THEME=
 EOF
 
 # ZSH custom folder
