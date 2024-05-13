@@ -2,10 +2,6 @@
 # Source Library/Functions
 . ./function_library
 
-# Non-zsh apt packages installed via 01_install-setup.sh bash script
-# ~/.zshrc updated below, after install of `oh-my-zsh`
-sudo apt install -y  zsh zsh-syntax-highlighting zsh-autosuggestions
-
 # set zsh as default shell
 DEFAULT_SHELL=$(getent passwd $USER | awk -F: '{print $NF}')
 if [[ $DEFAULT_SHELL == $(which zsh) ]]; then
