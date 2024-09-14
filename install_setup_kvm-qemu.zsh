@@ -14,3 +14,6 @@ get_status "Check kvm_ok"
 # Install virt-manager (Graphical desktop application for managing virtual machines)
 sudo apt -y install virt-manager
 get_status "Install virt-manager"
+
+# Add user to groups to run VMs withou sudo/root privileges
+# TODO
