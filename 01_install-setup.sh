@@ -18,7 +18,14 @@ get_status "Update of apt cache and package installations"
 # Flatpak apps
 echo 'Installing flatpak applications...'
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install -y foliate joplin
+# Uncomment joplin below if you want to install it.
+flatpak install -y foliate #joplin
 get_status "Flatpak app install"
+
+# ZSH install
+echo 'Instaling zsh, autosuggestions, syntax-highlighting...'
+# ~/.zshrc updated below, after install of `oh-my-zsh`
+sudo apt install -y  zsh zsh-syntax-highlighting zsh-autosuggestions
+get_status "ZSH install"
 
 exit 0

@@ -21,7 +21,7 @@ mkdir -p $HOME/.zsh/custom
 ZSH_CUSTOM=$HOME/.zsh/custom
 
 # Install powerlevel10k
-THEME_REPO='$HOME/.zsh/custom/themes/powerlevel10k'
+THEME_REPO=$HOME/.zsh/custom/themes/powerlevel10k
 if [[ -d $THEME_REPO ]]; then
   echo "Theme already installed."
 else
