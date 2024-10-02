@@ -1,3 +1,6 @@
+#!/usr/bin/zsh
+# Install dependencies and clone source and install Pop!_OS shell
+
 # Build Dependencies
 sudo apt install -y git node-typescript make gnome-shell-extension-prefs
 
