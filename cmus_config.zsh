@@ -2,8 +2,8 @@
 # cmus setup (install if not already available)
 
 # Install cmus
-if [ cmus ]; then
-  echo cmus alredy installed
+if (( $+commands[ cmus ] )); then
+  echo cmus already installed
   echo  $(which cmus)
 else
   echo Installing cmus...
