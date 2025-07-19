@@ -53,7 +53,7 @@ alias apt-all="au && upgrade && clean"
 alias fwu="sudo fwupdmgr get-devices && sudo fwupdmgr get-updates && sudo fwupdmgr update -y"
 
 # Flatpak
-alias fpu="flatpak update --assumeyes && flatpak upgrade --assumeyes"
+alias fpu="flatpak update && flatpak upgrade --assumeyes && flatpak remove --unused --assumeyes"
 EOF
 
 cat <<- EOF >> ${ZSH_CUSTOM:-$HOME/.zsh/custom}/path.zsh
