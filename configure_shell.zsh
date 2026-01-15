@@ -1,12 +1,13 @@
+#!/usr/bin/zsh
 # Removing oh-my-zsh - going rogue! :-p
 
 # Install fonts for powerlevel10k
 ./install_fonts_MesloLGS.zsh
-if [ -e ~/.zshrc ]; then
-  cp ~/.zshrc ~/.zshrc.bak
+if [[ -e "$HOME/.zshrc" ]]; then
+  cp "$HOME/.zshrc" "$HOME/.zshrc.bak"
 fi
 
-cat <<- EOF > ~/.zshrc
+cat <<- EOF > "$HOME/.zshrc"
 # ~/.zshrc
 # CrustyBarnacle
 # March 10, 2023
@@ -30,7 +31,7 @@ else
 fi
 
 # Add Powerline10k theme
-echo 'source $HOME/.zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
+echo 'source $HOME/.zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme' >> "$HOME/.zshrc"
 exec zsh # Powerline10k wizard should start automatically - uncomment next line if otherwise
 # p10k configure
 
@@ -57,5 +58,5 @@ alias fpu="flatpak update && flatpak upgrade --assumeyes && flatpak remove --unu
 EOF
 
 cat <<- EOF >> ${ZSH_CUSTOM:-$HOME/.zsh/custom}/path.zsh
-export PATH=$PATH:~/.local/bin
+export PATH=\$PATH:\$HOME/.local/bin
 EOF

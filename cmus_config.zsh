@@ -11,17 +11,17 @@ else
 fi
 
 # Clone somafm repo, get stations, and create cmus playlist
-cd ~/Projects
+cd "$HOME/Projects"
 
-if [ ! -d "somafm" ]; then
+if [[ ! -d "somafm" ]]; then
   git clone --depth=1 https://github.com/CrustyBarnacle/somafm.git
 fi
 
 cd ./somafm
 
-if [  ! -f "pyproject.toml" ]; then
+if [[ ! -f "pyproject.toml" ]]; then
   poetry init -n
 fi
 
 poetry install
-poetry run python3 somafm.py | sed 's/https/http/' > ~/.config/cmus/playlists/soma_channels_http.pl
+poetry run python3 somafm.py | sed 's/https/http/' > "$HOME/.config/cmus/playlists/soma_channels_http.pl"

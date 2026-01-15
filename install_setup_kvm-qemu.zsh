@@ -1,19 +1,15 @@
 #!/usr/bin/zsh
 # https://ubuntu.com/blog/kvm-hyphervisor
-
-# Source Library/Functions
-. ./function_library
+set -e
 
 # Install the required packages
-sudo apt -y install bridge-utils cpu-checker libvirt-clients libvirt-daemon qemu-system qemu-kvm
+sudo apt install -y bridge-utils cpu-checker libvirt-clients libvirt-daemon qemu-system qemu-kvm
 
-# Add the repository:
+# Check KVM support
 kvm-ok
-get_status "Check kvm_ok"
 
 # Install virt-manager (Graphical desktop application for managing virtual machines)
-sudo apt -y install virt-manager
-get_status "Install virt-manager"
+sudo apt install -y virt-manager
 
-# Add user to groups to run VMs withou sudo/root privileges
+# Add user to groups to run VMs without sudo/root privileges
 # TODO

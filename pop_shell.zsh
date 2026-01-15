@@ -6,9 +6,9 @@ sudo apt install -y git node-typescript make gnome-shell-extension-prefs
 
 
 # Clone shell repo and build the package
-cd ~/Projects
+cd "$HOME/Projects"
 
-if [ ! -d "shell" ]; then
+if [[ ! -d "shell" ]]; then
   git clone --depth=1 https://github.com/pop-os/shell.git
 fi
 

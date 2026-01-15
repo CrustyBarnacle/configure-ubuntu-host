@@ -50,11 +50,17 @@ These scripts are called from `02_configure.zsh`
  * `install_fonts_MesloLGS.zsh`
  * `install_vscodium.zsh`
 
- Cmus script: `cmus_config.zsh`
-  * installs the c music player `cmus`
-  * Creates a playlist of all current [SomaFM](https://somafm.com/) web radio channels
-    (copied to `~/.config/cmus/playlists/soma_channels_http.pl`)
-  * Based on my [somafm](https://github.com/CrustyBarnacle/somafm) python script.
+## `install_hyprland.zsh`
+Installs Hyprland window manager and ecosystem on Ubuntu 25.10+.
+ * Uses [cppiber's PPA](https://launchpad.net/~cppiber/+archive/ubuntu/hyprland)
+ * Installs: hyprland, hyprpaper, hyprlock, hypridle, hyprpicker, xdg-desktop-portal-hyprland
+
+## `cmus_config.zsh`
+ * **Requires**: Run `python_setup.zsh` first (for poetry)
+ * Installs the c music player `cmus`
+ * Creates a playlist of all current [SomaFM](https://somafm.com/) web radio channels
+   (copied to `~/.config/cmus/playlists/soma_channels_http.pl`)
+ * Based on my [somafm](https://github.com/CrustyBarnacle/somafm) python script.
 
  Originally [a gist](https://gist.github.com/CrustyBarnacle/d21252366fccd873bec70469e986a0b7)
 

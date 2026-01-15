@@ -1,3 +1,4 @@
+#!/usr/bin/zsh
 # python pip pipx poetry
 echo 'Installing pip/x, poetry...'
 python3 -m pip install --user pipx

@@ -1,6 +1,5 @@
 #!/usr/bin/zsh
-# Source Library/Functions
-. ./function_library
+set -e
 
 # set zsh as default shell
 DEFAULT_SHELL=$(getent passwd $USER | awk -F: '{print $NF}')
@@ -8,9 +7,7 @@ if [[ $DEFAULT_SHELL == $(which zsh) ]]; then
   echo "ZSH already default shell for $USER."
 else
   chsh -s $(which zsh) $USER
-  get_status "Updating default shell"
 fi
-
 
 # Create custom dirs
 CUSTOM_DIRS=(
@@ -18,7 +15,7 @@ CUSTOM_DIRS=(
     ~/Projects
     )
 for dir in $CUSTOM_DIRS;
-    if [ ! -d "$dir" ]; then
+    if [[ ! -d "$dir" ]]; then
     echo "Creating $dir"
     mkdir "$dir"
     else
@@ -35,10 +32,9 @@ if [[ ${choice} == 'y' ]]; then
 else
   echo "Not installing vscodium."
 fi
-get_status "Installing vscodium..."
 
 # Configure ZSH
 ./configure_shell.zsh
-get_status "ZSH setup..."
 
+echo "Configuration complete."
 exit 0

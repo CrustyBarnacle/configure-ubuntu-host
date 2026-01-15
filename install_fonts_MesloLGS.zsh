@@ -17,12 +17,12 @@ for font in $fonts; do
 wget ${font/#/$url};
 done
 
-if [ ! -d "~/.local/share/fonts/" ]; then
-  mkdir -p ~/.local/share/fonts/
+if [[ ! -d "$HOME/.local/share/fonts/" ]]; then
+  mkdir -p "$HOME/.local/share/fonts/"
 fi
 
 for font in $fonts; do
-cp $font ~/.local/share/fonts/;
+cp "$font" "$HOME/.local/share/fonts/";
 done
 
 # rebuild font cache
