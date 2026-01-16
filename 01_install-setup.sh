@@ -18,6 +18,10 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 # Uncomment joplin below if you want to install it.
 flatpak install -y foliate #joplin
 
+# Snap apps
+echo 'Installing snap applications...'
+sudo snap install glow
+
 # ZSH install
 echo 'Instaling zsh, autosuggestions, syntax-highlighting...'
 # ~/.zshrc updated below, after install of `oh-my-zsh`

@@ -24,6 +24,8 @@ The scripts will install and configure the following:
  * Installs some `flatpak` applications (more recent than `apt` versions):
     * foliate (ereader)
     * joplin (markdown editor, preview, notes sync, ...)
+ * Installs `snap` applications:
+    * glow (terminal markdown reader)
  * Sets `zsh` as defualt user shell
 
 ## `02_configure.zsh`
