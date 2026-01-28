@@ -119,22 +119,22 @@ backup_zsh_configs() {
 
     # Backup .zshrc
     if [[ -f "$HOME/.zshrc" ]]; then
-        backup_file "$HOME/.zshrc" && ((backed_up++))
+        backup_file "$HOME/.zshrc" && { (( backed_up++ )) || true; }
     fi
 
     # Backup zsh history (critical - never lose this)
     if [[ -f "$HOME/.zsh_history" ]]; then
-        backup_file "$HOME/.zsh_history" && ((backed_up++))
+        backup_file "$HOME/.zsh_history" && { (( backed_up++ )) || true; }
     fi
 
     # Backup p10k config
     if [[ -f "$HOME/.p10k.zsh" ]]; then
-        backup_file "$HOME/.p10k.zsh" && ((backed_up++))
+        backup_file "$HOME/.p10k.zsh" && { (( backed_up++ )) || true; }
     fi
 
     # Backup custom zsh directory
     if [[ -d "$HOME/.zsh/custom" ]]; then
-        backup_dir "$HOME/.zsh/custom" && ((backed_up++))
+        backup_dir "$HOME/.zsh/custom" && { (( backed_up++ )) || true; }
     fi
 
     if [[ $backed_up -gt 0 ]]; then

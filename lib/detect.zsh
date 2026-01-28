@@ -161,7 +161,7 @@ count_apt_installed() {
 
     for pkg in "${packages[@]}"; do
         if is_apt_installed "$pkg"; then
-            ((installed++))
+            (( installed++ )) || true
         fi
     done
 

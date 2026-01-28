@@ -89,7 +89,7 @@ APT_INSTALLED=0
 APT_MISSING=()
 for pkg in "${APT_PACKAGES[@]}"; do
     if is_apt_installed "$pkg"; then
-        ((APT_INSTALLED++))
+        (( APT_INSTALLED++ )) || true
     else
         APT_MISSING+=("$pkg")
     fi

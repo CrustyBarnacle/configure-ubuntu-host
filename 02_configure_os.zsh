@@ -63,7 +63,7 @@ fi
 CUSTOM_DIRS=(~/Bin ~/Projects)
 DIRS_EXIST=0
 for dir in "${CUSTOM_DIRS[@]}"; do
-    [[ -d "$dir" ]] && ((DIRS_EXIST++))
+    [[ -d "$dir" ]] && (( DIRS_EXIST++ )) || true
 done
 if [[ $DIRS_EXIST -eq ${#CUSTOM_DIRS[@]} ]]; then
     DIRS_STATUS="true"

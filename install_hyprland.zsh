@@ -50,7 +50,7 @@ PACKAGES_INSTALLED=0
 PACKAGES_MISSING=()
 for pkg in "${HYPRLAND_PACKAGES[@]}"; do
     if is_apt_installed "$pkg"; then
-        ((PACKAGES_INSTALLED++))
+        (( PACKAGES_INSTALLED++ )) || true
     else
         PACKAGES_MISSING+=("$pkg")
     fi

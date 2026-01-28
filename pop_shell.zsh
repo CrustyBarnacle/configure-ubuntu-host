@@ -31,7 +31,7 @@ DEPS_INSTALLED=0
 DEPS_MISSING=()
 for pkg in "${BUILD_DEPS[@]}"; do
     if is_apt_installed "$pkg"; then
-        ((DEPS_INSTALLED++))
+        (( DEPS_INSTALLED++ )) || true
     else
         DEPS_MISSING+=("$pkg")
     fi
