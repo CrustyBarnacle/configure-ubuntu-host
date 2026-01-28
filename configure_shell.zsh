@@ -30,13 +30,6 @@ else
   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $THEME_REPO
 fi
 
-# Add Powerline10k theme
-echo 'source $HOME/.zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme' >> "$HOME/.zshrc"
-
-# https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md
-echo "source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> $HOME/.zshrc
-echo "source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh" >> $HOME/.zshrc
-
 # Package management aliases
 # Create/append to `aliases_apt.zsh`
 cat <<- EOF >> ${ZSH_CUSTOM:-$HOME/.zsh/custom}/aliases_apt.zsh
@@ -54,6 +47,13 @@ alias fwu="sudo fwupdmgr get-devices && sudo fwupdmgr get-updates && sudo fwupdm
 # Flatpak
 alias fpu="flatpak update && flatpak upgrade --assumeyes && flatpak remove --unused --assumeyes"
 EOF
+
+# https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md
+echo "source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> $HOME/.zshrc
+echo "source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh" >> $HOME/.zshrc
+# Add Powerline10k theme config to .zshrd
+echo 'source $HOME/.zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme' >> "$HOME/.zshrc"
+
 
 cat <<- EOF >> ${ZSH_CUSTOM:-$HOME/.zsh/custom}/path.zsh
 export PATH=\$PATH:\$HOME/.local/bin
