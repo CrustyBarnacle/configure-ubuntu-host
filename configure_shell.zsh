@@ -32,8 +32,6 @@ fi
 
 # Add Powerline10k theme
 echo 'source $HOME/.zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme' >> "$HOME/.zshrc"
-exec zsh # Powerline10k wizard should start automatically - uncomment next line if otherwise
-# p10k configure
 
 # https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md
 echo "source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> $HOME/.zshrc
@@ -60,3 +58,6 @@ EOF
 cat <<- EOF >> ${ZSH_CUSTOM:-$HOME/.zsh/custom}/path.zsh
 export PATH=\$PATH:\$HOME/.local/bin
 EOF
+
+exec zsh # Powerline10k wizard should start automatically - uncomment next line if otherwise
+# p10k configure
