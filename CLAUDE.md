@@ -15,6 +15,10 @@ Scripts use `set -e` for error handling - execution stops on first failure.
 
 ## Architecture
 
+- **Shared library** (`lib/`):
+  - `common.zsh` - Colors, print functions, prompts (sources detect.zsh and backup.zsh)
+  - `detect.zsh` - State detection functions for all components
+  - `backup.zsh` - Backup management for user configs
 - **Entry scripts**: `01_install-setup.sh` (bash) and `02_configure_os.zsh` (zsh) are the main orchestration scripts
 - **Helper scripts**: Called by `02_configure_os.zsh`:
   - `configure_shell.zsh` - Sets up zsh with powerlevel10k theme, syntax highlighting, aliases
@@ -38,3 +42,13 @@ Scripts use `set -e` for error handling - execution stops on first failure.
 - Interactive prompts use zsh's `read 'variable?prompt'` syntax
 - Custom directories default to `~/Bin` and `~/Projects`
 - Zsh configuration lives in `~/.zsh/custom/` (not oh-my-zsh)
+
+## Idempotency
+
+All scripts are safe to re-run:
+- Detection functions check if components are already installed
+- Scripts display status summary before making changes
+- User confirmation required before proceeding
+- Backups created at `~/.config/ubuntu-setup-backups/` before modifying configs
+- Use `>` (overwrite) not `>>` (append) for config files to prevent duplicates
+- Use `ensure_zshrc_sources()` pattern to add lines only if not present

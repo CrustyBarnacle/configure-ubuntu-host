@@ -1,74 +1,96 @@
-# Desktop Configuration
+# Ubuntu Desktop Configuration Scripts
 
-My dotfiles are scripts (mostly?).
-A few scripts to set up your new Ubuntu-based desktop installation.
+Shell scripts to automate Ubuntu desktop setup and configuration. Scripts are **idempotent** - safe to re-run without losing existing configs or creating duplicates.
 
-ToDo:
- * add some useful aliases
-   * some have been added via `configure_shell.zsh`
- * proper dotfiles (~/.config) backup
- * set some firefox preferences
-   * install extensions (ad block, bitwarden)
-   * stop prompting to save passwords
+## Features
 
-The scripts will install and configure the following:
+- **Status summaries** - See what's installed before making changes
+- **Detection** - Automatically skips already-installed components
+- **User control** - Confirmation prompt before any changes
+- **Backups** - Configs backed up to `~/.config/ubuntu-setup-backups/` before modification
+- **Preserved files** - `.zsh_history`, `.p10k.zsh`, and custom aliases are never overwritten
 
-## `01_install-setup.sh`
- * UFW (enable, default drop incoming, accept outgoing)
- * Installs some `apt` packages:
-    * bat
-    * gnome-tweaks
-    * python3 python3-pip python3.10-venv
-    * xclip
-    * zsh
- * Installs some `flatpak` applications (more recent than `apt` versions):
-    * foliate (ereader)
-    * joplin (markdown editor, preview, notes sync, ...)
- * Installs `snap` applications:
-    * glow (terminal markdown reader)
- * Sets `zsh` as defualt user shell
+## Quick Start
 
-## `02_configure.zsh`
- * Python3 supporting utilities:
-    * pipx
-    * poetry
- * Custom directories created  (change or comment out as needed):
-    * ~/Bin, ~/Projects
-    ```shell
-    # Create custom dirs
-    CUSTOM_DIRS=(
-    ~/Bin
-    ~/Projects
-    )
-    ```
- * Installs VScodium (`codium`)
- * Intalls `oh-my-zsh` (`install.sh` runs directly via curl/download)
- * Installs MesloLGS nerd fonts for Powerlevel10K and rebuids font-cache
- * Installs Powerlevel10K config/theme for zsh
-    (copied to `ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/`)
-   * sets `ZSH_THEME` to Powerlevel10k, and restarts zsh
----
-These scripts are called from `02_configure.zsh`
- * `install_fonts_MesloLGS.zsh`
- * `install_vscodium.zsh`
+```bash
+# 1. Initial setup (packages, firewall, flatpaks)
+./01_install-setup.sh
 
-## `install_hyprland.zsh`
-Installs Hyprland window manager and ecosystem on Ubuntu 25.10+.
- * Uses [cppiber's PPA](https://launchpad.net/~cppiber/+archive/ubuntu/hyprland)
- * Installs: hyprland, hyprpaper, hyprlock, hypridle, hyprpicker, xdg-desktop-portal-hyprland
+# 2. Configure OS (zsh, themes, directories)
+./02_configure_os.zsh
+```
 
-## `cmus_config.zsh`
- * **Requires**: Run `python_setup.zsh` first (for poetry)
- * Installs the c music player `cmus`
- * Creates a playlist of all current [SomaFM](https://somafm.com/) web radio channels
-   (copied to `~/.config/cmus/playlists/soma_channels_http.pl`)
- * Based on my [somafm](https://github.com/CrustyBarnacle/somafm) python script.
+## Scripts
 
- Originally [a gist](https://gist.github.com/CrustyBarnacle/d21252366fccd873bec70469e986a0b7)
+### Main Scripts (run in order)
 
- ### References
-  * [zsh](https://github.com/zsh-users/zsh)
-  * ~~[oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)~~ moving away from any zsh config framework
-  * [powerlevel10k](https://github.com/romkatv/powerlevel10k)
-  * [helpful.wiki](https://helpful.wiki/zsh/)
-  * [Gist - Device Rule for Apple SuperDrive](https://gist.github.com/yookoala/818c1ff057e3d965980b7fd3bf8f77a6)
+#### `01_install-setup.sh`
+- Enables UFW firewall (default: deny incoming, allow outgoing)
+- Installs apt packages: bat, flatpak, python3, python3-pip, python3-venv, xclip, gnome-tweaks, zsh, zsh-syntax-highlighting, zsh-autosuggestions
+- Installs Flatpak apps: Foliate (ereader)
+- Installs Snap apps: glow (terminal markdown reader)
+
+#### `02_configure_os.zsh`
+- Sets zsh as default shell
+- Creates custom directories (`~/Bin`, `~/Projects`)
+- Optionally installs VScodium
+- Configures zsh with Powerlevel10k theme, syntax highlighting, aliases
+
+### Standalone Scripts (run as needed)
+
+| Script | Description | Requirements |
+|--------|-------------|--------------|
+| `python_setup.zsh` | Installs pipx and poetry | - |
+| `cmus_config.zsh` | cmus player with SomaFM playlist | `python_setup.zsh` first |
+| `install_hyprland.zsh` | Hyprland window manager | Ubuntu 25.10+ |
+| `install_setup_kvm-qemu.zsh` | KVM/QEMU virtualization | - |
+| `pop_shell.zsh` | Pop!_OS tiling extension | GNOME |
+| `superdrive_config.zsh` | Apple SuperDrive udev rule | - |
+
+### Helper Scripts (called by main scripts)
+
+- `configure_shell.zsh` - ZSH configuration with Powerlevel10k
+- `install_fonts_MesloLGS.zsh` - MesloLGS Nerd Fonts for Powerlevel10k
+- `install_vscodium.zsh` - VScodium editor
+
+### Shared Library (`lib/`)
+
+- `common.zsh` - Colors, print functions, prompts
+- `detect.zsh` - State detection for all components
+- `backup.zsh` - Backup management
+
+## Configuration
+
+ZSH configuration lives in `~/.zsh/custom/` (no framework):
+- `aliases_apt.zsh` - Package manager aliases
+- `path.zsh` - PATH configuration
+- `themes/powerlevel10k/` - Theme files
+
+## Example Output
+
+```
+Ubuntu Setup v2.0 - System Status
+==================================
+[+] UFW firewall         : Enabled
+[+] APT packages         : All installed (10/10)
+[+] Flatpak apps         : All installed
+[-] VScodium             : Not installed
+
+Actions to perform:
+  - Install VScodium
+
+Proceed? [Y/n]:
+```
+
+## ToDo
+
+- [ ] Firefox preferences and extensions
+- [ ] Proper dotfiles (~/.config) backup/restore
+
+## References
+
+- [zsh](https://github.com/zsh-users/zsh)
+- [powerlevel10k](https://github.com/romkatv/powerlevel10k)
+- [helpful.wiki/zsh](https://helpful.wiki/zsh/)
+- [Hyprland PPA](https://launchpad.net/~cppiber/+archive/ubuntu/hyprland)
+- [Apple SuperDrive udev rule](https://gist.github.com/yookoala/818c1ff057e3d965980b7fd3bf8f77a6)
