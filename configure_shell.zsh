@@ -35,6 +35,18 @@ if [[ ! -f "$HOME/.zshrc" ]] || ! grep -q "$ZSH_BASE_MARKER" "$HOME/.zshrc"; the
 
 PROMPT='%F{040}%n%f @ %F{156}%~%f -> '
 RPROMPT='%*'
+
+# History file for zsh
+HISTFILE=~/.zsh_history
+
+# How many commands to store in history
+HISTSIZE=10000
+SAVEHIST=10000
+
+# Share history in every terminal session
+setopt SHARE_HISTORY
+setopt APPEND_HISTORY
+setopt HIST_IGNORE_DUPS
 EOF
     print_success "Base .zshrc created"
 else
