@@ -2,6 +2,8 @@
 
 Shell scripts to automate Ubuntu desktop setup and configuration. Scripts are **idempotent** - safe to re-run without losing existing configs or creating duplicates.
 
+## I've moved to Arch (at least on one laptop) - dotfiles over yonder: https://github.com/CrustyBarnacle/dotfiles
+
 ## Features
 
 - **Status summaries** - See what's installed before making changes
